@@ -1,0 +1,83 @@
+[
+ {
+  "match_id": 3857271,
+  "match_date": "2022-11-21",
+  "stage": "Group Stage",
+  "home_team": "England",
+  "away_team": "Iran",
+  "home_score": 6,
+  "away_score": 2
+ },
+ {
+  "match_id": 3857291,
+  "match_date": "2022-11-23",
+  "stage": "Group Stage",
+  "home_team": "Spain",
+  "away_team": "Costa Rica",
+  "home_score": 7,
+  "away_score": 0
+ },
+ {
+  "match_id": 3857272,
+  "match_date": "2022-11-25",
+  "stage": "Group Stage",
+  "home_team": "England",
+  "away_team": "United States",
+  "home_score": 0,
+  "away_score": 0
+ },
+ {
+  "match_id": 3857263,
+  "match_date": "2022-11-27",
+  "stage": "Group Stage",
+  "home_team": "Spain",
+  "away_team": "Germany",
+  "home_score": 1,
+  "away_score": 1
+ },
+ {
+  "match_id": 3857261,
+  "match_date": "2022-11-29",
+  "stage": "Group Stage",
+  "home_team": "Wales",
+  "away_team": "England",
+  "home_score": 0,
+  "away_score": 3
+ },
+ {
+  "match_id": 3857255,
+  "match_date": "2022-12-01",
+  "stage": "Group Stage",
+  "home_team": "Japan",
+  "away_team": "Spain",
+  "home_score": 2,
+  "away_score": 1
+ },
+ {
+  "match_id": 3869118,
+  "match_date": "2022-12-04",
+  "stage": "Round of 16",
+  "home_team": "England",
+  "away_team": "Senegal",
+  "home_score": 3,
+  "away_score": 0
+ },
+ {
+  "match_id": 3869220,
+  "match_date": "2022-12-06",
+  "stage": "Round of 16",
+  "home_team": "Morocco",
+  "away_team": "Spain",
+  "home_score": 0,
+  "away_score": 0
+ },
+ {
+  "match_id": 3869354,
+  "match_date": "2022-12-10",
+  "stage": "Quarter-finals",
+  "home_team": "England",
+  "away_team": "France",
+  "home_score": 1,
+  "away_score": 2
+ }
+]

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visualização de Dados – Redesign de gráficos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!--
+    Bibliotecas externas (somente baixo nível, via CDN, sem etapa de build):
+      - D3.js v7      → escalas, eixos, seleções, transições (js/lib.js)
+      - DuckDB-WASM   → consultas SQL no navegador (js/db.js)
+  -->
+</head>
+<body>
+  <header class="topo">
+    <a class="marca" href="#/">Redesign de Visualizações</a>
+    <nav id="nav-casos" aria-label="Casos"></nav>
+    <span id="status-db" class="status-db" title="Estado do DuckDB-WASM">DuckDB: inativo</span>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+
+  <footer class="rodape">
+    Trabalho de Visualização de Dados – UFF. Dados processados no navegador com DuckDB-WASM; gráficos em D3.js.
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
