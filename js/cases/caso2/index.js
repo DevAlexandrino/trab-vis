@@ -2,9 +2,10 @@
  * Caso 2 – ESQUELETO (a ser preenchido pelo colega responsável).
  *
  * Como usar este modelo (o Caso 1 em js/cases/caso1/ é um exemplo completo):
- *   1. Coloque os dados em data/caso2/ e (se preciso) um script de preparo em scripts/.
+ *   1. Selecione o caso em Makeover Monday (ex: https://makeovermonday.vercel.app/datasets)
+ *      ou Junk Charts, e coloque os dados em data/caso2/.
  *   2. Edite `meta` abaixo (título, pergunta, fonte e a tarefa de cada painel).
- *   3. Em `render`, registre os arquivos, rode o SQL de modelagem e desenhe nos painéis:
+ *   3. Em `render`, registre os arquivos no DuckDB, rode o SQL de modelagem e desenhe nos painéis:
  *        layout.original, layout.designA, layout.designB, layout.controles, layout.rodape
  */
 import { registrarArquivos, executar, consultar } from '../../db.js';
@@ -12,7 +13,7 @@ import { registrarArquivos, executar, consultar } from '../../db.js';
 export const meta = {
   titulo: 'Caso 2 · (título do caso)',
   pergunta: 'Pergunta que o gráfico original quer responder.',
-  fonte: 'Fonte do gráfico original e dos dados.',
+  fonte: 'Fonte do gráfico original (ex: Junk Charts / Makeover Monday) e do dataset.',
   paineis: {
     original: { titulo: 'Gráfico original', tarefa: '' },
     designA: { titulo: 'Design A', tarefa: '' },

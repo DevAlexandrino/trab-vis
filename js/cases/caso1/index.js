@@ -19,7 +19,7 @@ import { NORMALIZACAO, NOME_TIME, COR_TIME } from './comum.js';
 export const meta = {
   titulo: 'Caso 1 · Que estilo de jogo os passes revelam?',
   pergunta: 'Espanha × Inglaterra na Copa do Mundo de 2022: onde, como e em que sequência cada seleção passa a bola.',
-  fonte: `Original: Brennan Klein (Northeastern) via Junk Charts. Dados: <a href="https://github.com/statsbomb/open-data" target="_blank" rel="noopener">StatsBomb Open Data</a> (Copa 2022, todos os jogos das duas seleções).`,
+  fonte: `Original: Brennan Klein (Northeastern) via <a href="https://www.junkcharts.com/making-sense-of-long-data-sequences/" target="_blank" rel="noopener">Junk Charts (“Making sense of long data sequences”)</a>. Dados: <a href="https://github.com/statsbomb/open-data" target="_blank" rel="noopener">StatsBomb Open Data</a> (Copa 2022, jogos completos).`,
   paineis: {
     original: { titulo: 'Clusters de passes', tarefa: 'identificar o estilo de cada time (“que time é este?”).' },
     designA: { titulo: 'Onde cada time passa', tarefa: 'comparar a distribuição espacial dos passes, lado a lado e na mesma escala.' },

@@ -106,10 +106,15 @@ export function criarDesignA(corpo) {
     const norm = NORMALIZACAO[f.norm];
     const fmt = (v) => formatar(v, f.norm);
 
-    // ESCALA SEQUENCIAL COMPARTILHADA: domínio [0, máximo entre os DOIS times].
-    // Usar o mesmo domínio é o que permite comparar cor com cor entre os painéis.
+    // ESCALAS SEQUENCIAIS COM O MESMO DOMÍNIO [0, máximo entre os DOIS times]:
+    // Espanha em escala vermelha (d3.interpolateReds) e Inglaterra em azul (d3.interpolateBlues).
+    // Ambas compartilham exatamente o mesmo domínio [0, max], permitindo comparação justa de intensidade
+    // enquanto preservam a identidade visual de cada seleção (vermelho = Espanha, azul = Inglaterra).
     const max = d3.max(dadosAtuais, (d) => Math.max(d.spain, d.england));
-    const seq = d3.scaleSequential(d3.interpolatePurples).domain([0, max]);
+    const escalaPorTime = {
+      spain: d3.scaleSequential(d3.interpolateReds).domain([0, max]),
+      england: d3.scaleSequential(d3.interpolateBlues).domain([0, max]),
+    };
 
     // ESCALA DIVERGENTE: centrada em 0 e simétrica (±maior diferença absoluta),
     // para que a mesma intensidade de cor signifique a mesma diferença nos dois sentidos.
@@ -134,9 +139,10 @@ export function criarDesignA(corpo) {
       } else {
         const time = p.chave === 'spain' ? 'Spain' : 'England';
         const total = f.norm === 'pct' ? '' : ` · ${fmt(totais[p.chave])} ${norm.unidade}`;
+        const escalaTime = escalaPorTime[p.chave];
         p.titulo.html(`<span style="color:${COR_TIME[time]}">${NOME_TIME[time]}</span>${total}`);
-        desenharCelulas(p, dadosAtuais, (d) => d[p.chave], seq, fmt);
-        legendaContinua(p.legenda.node(), seq, { titulo: `${norm.unidade} (mesma escala nos dois times)`, formato: fmt });
+        desenharCelulas(p, dadosAtuais, (d) => d[p.chave], escalaTime, fmt);
+        legendaContinua(p.legenda.node(), escalaTime, { titulo: `${norm.unidade} (escala 0 a ${fmt(max)})`, formato: fmt });
       }
     }
 

@@ -36,7 +36,7 @@ export function criarOriginal(corpo) {
     </div>
     <p class="credito">Gráficos: <strong>Brennan Klein</strong> (Northeastern University), Copa do Mundo 2022.
       Publicados e discutidos em <strong>Junk Charts</strong> (Kaiser Fung),
-      “Making sense of long data sequences”, 22/06/2026.</p>
+      <a href="https://www.junkcharts.com/making-sense-of-long-data-sequences/" target="_blank" rel="noopener">“Making sense of long data sequences”</a>.</p>
 
     <h4>O que o gráfico quer responder</h4>
     <p>Que estilo de jogo cada seleção tem, com base nos seus padrões de passe? O post faz isso como um
