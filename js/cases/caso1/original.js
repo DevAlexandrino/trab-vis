@@ -58,6 +58,10 @@ export function criarOriginal(corpo) {
       img.hidden = true;
       img.nextElementSibling.hidden = false;
     });
+    // Clique abre visualização em tamanho real
+    img.addEventListener('click', () => {
+      window.open(img.src, '_blank');
+    });
   });
 }
 

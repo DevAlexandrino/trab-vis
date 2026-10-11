@@ -148,15 +148,20 @@ svg { display: block; width: 100%; height: auto; overflow: visible; }
 .campo-ataque { font-weight: 600; fill: var(--tinta); }
 
 /* ---------- Original ---------- */
-.orig-imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .6rem; }
-.orig-imagens figure { margin: 0; }
-.orig-imagens img { width: 100%; border: 1px solid var(--borda); border-radius: 6px; }
+.orig-imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; margin-bottom: .8rem; }
+.orig-imagens figure { margin: 0; background: #fff; padding: .4rem; border: 1px solid var(--borda); border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+.orig-imagens img {
+  width: 100%; height: auto; display: block; border-radius: 4px; object-fit: contain;
+  cursor: zoom-in; transition: transform .2s ease, box-shadow .2s ease;
+}
+.orig-imagens img:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+[hidden] { display: none !important; }
 .orig-ausente {
   aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; text-align: center;
   border: 2px dashed var(--borda); border-radius: 6px; font-size: .78rem; color: var(--tinta-suave); padding: .5rem;
 }
-.orig-imagens figcaption { font-size: .78rem; color: var(--tinta-suave); margin-top: .2rem; }
-.credito { font-size: .82rem; }
+.orig-imagens figcaption { font-size: .82rem; font-weight: 500; color: var(--tinta); margin-top: .4rem; text-align: center; }
+.credito { font-size: .82rem; line-height: 1.4; color: var(--tinta-suave); }
 .problemas { padding-left: 1.2rem; font-size: .86rem; }
 .problemas li { margin-bottom: .35rem; }
 
