@@ -13,7 +13,7 @@ export const CASOS = [
   {
     id: 'caso1',
     rotulo: 'Caso 1 · Passes na Copa 2022',
-    resumo: 'Spain × England: que estilo de jogo os padrões de passe revelam? (Junk Charts / Brennan Klein)',
+    resumo: 'Espanha × Inglaterra: que estilo de jogo os padrões de passe revelam? (Junk Charts / Brennan Klein)',
     carregar: () => import('./caso1/index.js'),
   },
   {

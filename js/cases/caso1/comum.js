@@ -10,6 +10,22 @@ import { d3 } from '../../lib.js';
  */
 export const COR_TIME = { Spain: '#b2182b', England: '#2166ac' };
 export const NOME_TIME = { Spain: 'Espanha', England: 'Inglaterra' };
+export const NOME_FASE = {
+  'Group Stage': 'Fase de grupos',
+  'Round of 16': 'Oitavas de final',
+  'Quarter-finals': 'Quartas de final',
+};
+export const NOME_ADVERSARIO = {
+  'Costa Rica': 'Costa Rica',
+  Germany: 'Alemanha',
+  Japan: 'Japão',
+  Morocco: 'Marrocos',
+  Iran: 'Irã',
+  'United States': 'Estados Unidos',
+  Wales: 'País de Gales',
+  Senegal: 'Senegal',
+  France: 'França',
+};
 
 /** Rótulos e formatos de cada modo de normalização. */
 export const NORMALIZACAO = {

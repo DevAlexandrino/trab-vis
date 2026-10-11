@@ -7,14 +7,14 @@
  * Se não existirem, um aviso com instruções aparece no lugar.
  */
 const IMAGENS = [
-  { arquivo: 'assets/caso1/original-spain.png', legenda: 'Spain – mapa de clusters de passes' },
-  { arquivo: 'assets/caso1/original-england.png', legenda: 'England – mapa de clusters de passes' },
+  { arquivo: 'assets/caso1/original-spain.png', legenda: 'Espanha – mapa de clusters de passes' },
+  { arquivo: 'assets/caso1/original-england.png', legenda: 'Inglaterra – mapa de clusters de passes' },
 ];
 
 const PROBLEMAS = [
-  ['Comparação só de memória', 'Spain e England estão em imagens separadas; é preciso lembrar de uma ao olhar a outra.'],
-  ['Frequência escondida', 'O autor admite que os lançamentos longos da England “não aparecem no mapa” por serem pouco frequentes – justamente o contraste entre os estilos.'],
-  ['Volume não normalizado', 'Não se sabe se os mapas estão na mesma escala nem se o total considera jogos ou minutos (Spain: 4 jogos; England: 5).'],
+  ['Comparação só de memória', 'Espanha e Inglaterra estão em imagens separadas; é preciso lembrar de uma ao olhar a outra.'],
+  ['Frequência escondida', 'O autor admite que os lançamentos longos da Inglaterra “não aparecem no mapa” por serem pouco frequentes – justamente o contraste entre os estilos.'],
+  ['Volume não normalizado', 'Não se sabe se os mapas estão na mesma escala nem se o total considera jogos ou minutos (Espanha: 4 jogos; Inglaterra: 5).'],
   ['Cor categórica sem significado', 'O “cluster vermelho” é um rótulo arbitrário; o leitor não aprende o que cada cor representa e cores diferentes sugerem diferenças maiores do que existem.'],
   ['Sobreposição de setas', 'Muitos passes curtos no meio-campo geram oclusão; a densidade real fica ilegível.'],
   ['Agregação perde a sequência', 'O título fala em “sequências longas”, mas o método trata passes como “bag of words”.'],

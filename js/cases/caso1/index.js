@@ -14,7 +14,7 @@ import { sqlSetup, sqlPartidas } from './queries.js';
 import { criarOriginal } from './original.js';
 import { criarDesignA } from './designA.js';
 import { criarDesignB } from './designB.js';
-import { NORMALIZACAO, NOME_TIME, COR_TIME } from './comum.js';
+import { NORMALIZACAO, NOME_TIME, COR_TIME, NOME_FASE, NOME_ADVERSARIO } from './comum.js';
 
 export const meta = {
   titulo: 'Caso 1 · Que estilo de jogo os passes revelam?',
@@ -77,8 +77,8 @@ async function desenharRodape(rodape) {
           <table class="tabela-partidas">
             <thead><tr><th>Seleção</th><th>Data</th><th>Fase</th><th>Adversário</th><th>Placar</th><th>Min.</th></tr></thead>
             <tbody>${partidas.map((p) => `
-              <tr><td style="color:${COR_TIME[p.time]}">${NOME_TIME[p.time]}</td><td>${p.data}</td><td>${p.fase}</td>
-                <td>${p.adversario}</td><td>${p.placar}</td><td>${p.minutos}</td></tr>`).join('')}
+              <tr><td style="color:${COR_TIME[p.time]}">${NOME_TIME[p.time]}</td><td>${p.data}</td><td>${NOME_FASE[p.fase] || p.fase}</td>
+                <td>${NOME_ADVERSARIO[p.adversario] || p.adversario}</td><td>${p.placar}</td><td>${p.minutos}</td></tr>`).join('')}
             </tbody>
           </table>
           <p class="nota">Minutos = duração real dos tempos 1–4 (com acréscimos e prorrogação; sem pênaltis),
