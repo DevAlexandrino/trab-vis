@@ -1,0 +1,12 @@
+uso,uso_pt,setor,pct,ordem_original
+MRI,Ressonância magnética,Criogenia (hélio líquido),18,1
+Semiconductor,Semicondutores,Manufatura,23,2
+Welding,Soldagem,Manufatura,12,3
+Aerospace,Aeroespacial,"Aeroespacial, balões e mergulho",8,4
+Lifting,Balões e elevação,"Aeroespacial, balões e mergulho",10,5
+Diving/breathing,Mergulho e respiração,"Aeroespacial, balões e mergulho",3,6
+Laboratory,Laboratório,Criogenia (hélio líquido),10,7
+Leak detection,Detecção de vazamentos,Manufatura,6,8
+Fiber optics,Fibra óptica,Manufatura,3,9
+Other cryogenic,Outros usos criogênicos,Criogenia (hélio líquido),4,10
+Controlled atmospheres,Atmosferas controladas,Manufatura,3,11
