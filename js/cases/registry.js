@@ -18,8 +18,8 @@ export const CASOS = [
   },
   {
     id: 'caso2',
-    rotulo: 'Caso 2',
-    resumo: 'Em construção – responsável: (colega).',
+    rotulo: 'Caso 2 · Consumo de hélio',
+    resumo: 'Quem consome o hélio do mundo? Uma pizza de 11 fatias redesenhada (Junk Charts / Physics Today).',
     carregar: () => import('./caso2/index.js'),
   },
   {
