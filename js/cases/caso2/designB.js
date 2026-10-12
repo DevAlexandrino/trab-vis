@@ -4,6 +4,9 @@ import { legendaCategorica } from '../../components/legend.js';
 import { mostrarTooltip, esconderTooltip } from '../../components/tooltip.js';
 import { sqlSetores } from './queries.js';
 
+// Design B: uma coluna de 100% com os usos agrupados por setor.
+
+// Uma cor por setor (também usada no rodapé).
 export const COR_SETOR = {
   Manufatura: '#3b6ea8',
   'Criogenia (hélio líquido)': '#c8553d',
@@ -16,9 +19,11 @@ export async function criarDesignB(corpo) {
   const m = { t: 10, b: 10 };
   const coluna = { x: 220, largura: 70 };
 
+  // Dados já vêm ordenados e com a posição inicial de cada uso
   const dados = await consultar(sqlSetores());
   const y = d3.scaleLinear().domain([0, 100]).range([m.t, H - m.b]);
 
+  // Total e início de cada setor, para as chaves e a legenda
   const setores = d3.rollups(dados, (v) => ({
     total: v[0].total,
     inicio: d3.min(v, (d) => d.inicio),
@@ -28,6 +33,7 @@ export async function criarDesignB(corpo) {
 
   const svg = d3.select(corpo).append('svg').attr('viewBox', `0 0 ${W} ${H}`);
 
+  // Segmentos da coluna: altura proporcional ao percentual
   svg.append('g').selectAll('rect')
     .data(dados)
     .join('rect')
@@ -40,6 +46,7 @@ export async function criarDesignB(corpo) {
     .on('mousemove', (ev, d) => mostrarTooltip(`<strong>${d.uso_pt}</strong><br/>${d.pct}% do consumo<br/>${d.setor} (${d.total}%)`, ev))
     .on('mouseleave', esconderTooltip);
 
+  // Rótulo direto à direita de cada segmento
   svg.append('g').selectAll('text')
     .data(dados)
     .join('text')
@@ -49,6 +56,7 @@ export async function criarDesignB(corpo) {
     .attr('dy', '0.35em')
     .text((d) => `${d.uso_pt} · ${d.pct}%`);
 
+  // Chave à esquerda com o total e o nome de cada setor
   const chave = svg.append('g').selectAll('g')
     .data(setores)
     .join('g')

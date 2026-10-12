@@ -4,6 +4,9 @@ import { criarOriginal } from './original.js';
 import { criarDesignA } from './designA.js';
 import { criarDesignB, COR_SETOR } from './designB.js';
 
+// Caso 2: consumo mundial de hélio (pizza da Physics Today, via Junk Charts).
+
+// Textos do cabeçalho e dos painéis
 export const meta = {
   titulo: 'Caso 2 · Quem consome o hélio do mundo?',
   pergunta: 'Consumo mundial de hélio por área de uso em 2025: quais usos dependem mais do gás e como o consumo se divide.',
@@ -15,6 +18,7 @@ export const meta = {
   },
 };
 
+// Carrega os dados no DuckDB e desenha os três painéis
 export async function render(layout) {
   criarOriginal(layout.original);
   layout.designA.innerHTML = '<p class="carregando">Carregando dados no DuckDB-WASM…</p>';
@@ -31,6 +35,7 @@ export async function render(layout) {
   await desenharRodape(layout.rodape);
 }
 
+// Rodapé: tabela de dados, validação e observações sobre o método
 async function desenharRodape(rodape) {
   const linhas = await consultar('SELECT * FROM helio ORDER BY ordem_original');
   const [{ n, total }] = await consultar(sqlValidacao());

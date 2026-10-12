@@ -4,6 +4,8 @@ import { grupoBotoes } from '../../layout.js';
 import { mostrarTooltip, esconderTooltip } from '../../components/tooltip.js';
 import { sqlUsos, sqlTop3 } from './queries.js';
 
+// Design A: barras horizontais ordenadas, com os três maiores usos em destaque.
+
 const COR_DESTAQUE = '#444';
 const COR_RESTO = '#b8bec7';
 const DURACAO = 600;
@@ -13,6 +15,7 @@ export function criarDesignA(corpo) {
   const H = 380;
   const m = { t: 10, r: 50, b: 30, l: 170 };
 
+  // Botão para alternar a ordem das barras
   corpo.appendChild(
     grupoBotoes('Ordem', [
       { valor: 'valor', texto: 'Por valor' },
@@ -22,9 +25,11 @@ export function criarDesignA(corpo) {
 
   const titulo = d3.select(corpo).append('h4');
   const svg = d3.select(corpo).append('svg').attr('viewBox', `0 0 ${W} ${H}`);
+  // x: percentual → largura da barra; y: uso → posição vertical
   const x = d3.scaleLinear().domain([0, 25]).range([m.l, W - m.r]);
   const y = d3.scaleBand().range([m.t, H - m.b]).padding(0.2);
 
+  // Eixo x com linhas de grade
   svg.append('g').attr('class', 'eixo')
     .attr('transform', `translate(0,${H - m.b})`)
     .call(d3.axisBottom(x).ticks(5).tickSize(-(H - m.t - m.b)).tickFormat((d) => `${d}%`));
@@ -33,12 +38,14 @@ export function criarDesignA(corpo) {
   d3.select(corpo).append('p').attr('class', 'nota')
     .text('Barras horizontais: o comprimento é o canal mais preciso para comparar valores. Os três maiores usos estão em cinza escuro.');
 
+  // Busca os dados no DuckDB e redesenha as barras na ordem pedida
   async function atualizar(ordem) {
     const dados = await consultar(sqlUsos(ordem));
     const [{ pct: top3 }] = await consultar(sqlTop3());
     titulo.text(`Três usos consomem ${top3}% do hélio do mundo`);
     y.domain(dados.map((d) => d.uso_pt));
 
+    // Uma linha (rótulo + barra + valor) por uso; a chave mantém a transição ao reordenar
     const g = barras.selectAll('g.linha')
       .data(dados, (d) => d.uso_pt)
       .join((enter) => {
@@ -51,9 +58,11 @@ export function criarDesignA(corpo) {
         return linha;
       });
 
+    // Tooltip com detalhes do uso
     g.on('mousemove', (ev, d) => mostrarTooltip(`<strong>${d.uso_pt}</strong><br/>${d.pct}% do consumo · ${d.posicao}º lugar<br/>Setor: ${d.setor}`, ev))
       .on('mouseleave', esconderTooltip);
 
+    // Move cada linha para a nova posição
     g.transition().duration(DURACAO).attr('transform', (d) => `translate(0,${y(d.uso_pt)})`);
     g.select('.eixo-rotulo').attr('y', y.bandwidth() / 2).text((d) => d.uso_pt);
     g.select('rect').attr('height', y.bandwidth()).attr('width', (d) => x(d.pct) - m.l);

@@ -1,3 +1,6 @@
+// Painel Original: imagem do gráfico, fonte, pergunta, dados e crítica.
+
+// Problemas do gráfico original: [título, descrição].
 const PROBLEMAS = [
   ['Ordem sem critério', 'As fatias não seguem o valor nem a ordem alfabética. Semicondutores (23%) aparece depois de MRI (18%) e o leitor não sabe por quê.'],
   ['Ângulos difíceis de comparar', 'Fatias próximas (10% × 12%, 18% × 23%) parecem iguais. Comparar ângulos e áreas é menos preciso que comparar comprimentos.'],
@@ -32,5 +35,6 @@ export function criarOriginal(corpo) {
     </ol>
     <p class="nota">Design A resolve 1, 2, 3 e 4 · Design B resolve 2, 4, 5 e 6.</p>`;
 
+  // Clique na imagem abre em tamanho real
   corpo.querySelector('img').addEventListener('click', (e) => window.open(e.target.src, '_blank'));
 }
