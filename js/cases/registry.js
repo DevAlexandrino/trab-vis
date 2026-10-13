@@ -24,8 +24,8 @@ export const CASOS = [
   },
   {
     id: 'caso3',
-    rotulo: 'Caso 3',
-    resumo: 'Em construção – responsável: (colega).',
+    rotulo: 'Caso 3 · Cobertura florestal',
+    resumo: 'Onde as florestas estão a encolher e a crescer? Curadoria e trade-offs dos 10 maiores países (Junk Charts / Kaiser Fung).',
     carregar: () => import('./caso3/index.js'),
   },
 ];
